@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Movies and Shows by Release Year</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .scene{
+            margin:100px;
+            background-color: #f0f0f0; 
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+        .heading{
+            font-weight: bold;
+            font-size: 24px;
+            margin: 20px;
+        }
+        .chartTitle{
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #333; 
+            text-align: center;
+            margin-bottom: 20px; 
+        }
+        .subheading {
+            text-align: center;
+            font-size: 16px;
+            color: #333; 
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .chart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom:15px;
+        }
+        .line {
+            fill: none;
+            stroke-width: 2px;
+        }
+        .axis-label {
+            font-size: 12px;
+        }
+        .annotation {
+            font-size: 15px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between; 
+            width: 100%; 
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .tooltip {
+            position: absolute;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            pointer-events: none; 
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="heading">
+            <heading>Netflix Movies Shows Narrative Visualization</heading>
+        </div>
+        <div class="chartTitle" id="chartTitle">
+            Count of Movies and Shows per Release Year
+        </div>
+        <div class="subheading" id="chartSubHeading">
+            Drag the slider to show data for the selected range of release years! <br>
+            Check tooltips to see exact release year and count.
+        </div>
+        <div class="chart">
+            <input type="range" id="yearSlider" min="1900" max="2024" value="2024">
+            <span id="sliderValue">2024</span>
+            <svg id="chart" width="500" height="100"></svg>
+            <div id="tooltip" class="tooltip"></div>
+        </div>
+        <script src="NarrativeVisualization.js"></script>
+        <div class="button-container">
+            <button class="button" id="prevButton">Previous</button>
+            <button class="button" id="nextButton">Next</button>
+        </div>
+    </div>
+</body>
+</html>
